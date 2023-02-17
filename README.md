@@ -1,4 +1,806 @@
-# JavaScript Interview Questions & Answers
+### Table of Contents
+
+| No. | Questions                                                                                                                                                         |
+| --- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | [What are the possible ways to create objects in JavaScript](#what-are-the-possible-ways-to-create-objects-in-javascript)                                         |
+| 2   | [What is prototype chain](#what-is-a-prototype-chain)                                                                                                             |
+| 3   | [What is the difference between Call, Apply and Bind](#what-is-the-difference-between-call-apply-and-bind)                                                        |
+| 4   | [What is JSON and its common operations](#what-is-json-and-its-common-operations)                                                                                 |
+| 5   | [What is the purpose of the array slice method](#what-is-the-purpose-of-the-array-slice-method)                                                                   |
+| 6   | [What is the purpose of the array splice method](#what-is-the-purpose-of-the-array-splice-method)                                                                 |
+| 7   | [What is the difference between slice and splice](#what-is-the-difference-between-slice-and-splice)                                                               |
+| 8   | [How do you compare Object and Map](#how-do-you-compare-object-and-map)                                                                                           |
+| 9   | [What is the difference between == and === operators](#what-is-the-difference-between--and--operators)                                                            |
+| 10  | [What are lambda or arrow functions](#what-are-lambda-or-arrow-functions)                                                                                         |
+| 11  | [What is a first class function](#what-is-a-first-class-function)                                                                                                 |
+| 12  | [What is a first order function](#what-is-a-first-order-function)                                                                                                 |
+| 13  | [What is a higher order function](#what-is-a-higher-order-function)                                                                                               |
+| 14  | [What is a unary function](#what-is-a-unary-function)                                                                                                             |
+| 15  | [What is the currying function](#what-is-the-currying-function)                                                                                                   |
+| 16  | [What is a pure function](#what-is-a-pure-function)                                                                                                               |
+| 17  | [What is the purpose of the let keyword](#what-is-the-purpose-of-the-let-keyword)                                                                                 |
+| 18  | [What is the difference between let and var](#what-is-the-difference-between-let-and-var)                                                                         |
+| 19  | [What is the reason to choose the name let as a keyword](#what-is-the-reason-to-choose-the-name-let-as-a-keyword)                                                 |
+| 20  | [How do you redeclare variables in switch block without an error](#how-do-you-redeclare-variables-in-switch-block-without-an-error)                               |
+| 21  | [What is the Temporal Dead Zone](#what-is-the-temporal-dead-zone)                                                                                                 |
+| 22  | [What is IIFE(Immediately Invoked Function Expression)](#what-is-iifeimmediately-invoked-function-expression)                                                     |
+| 23  | [How do you decode or encode a URL in JavaScript?](#how-do-you-decode-or-encode-a-url-in-javascript)                                                              |
+| 24  | [What is memoization](#what-is-memoization)                                                                                                                       |
+| 25  | [What is Hoisting](#what-is-hoisting)                                                                                                                             |
+| 26  | [What are classes in ES6](#what-are-classes-in-es6)                                                                                                               |
+| 27  | [What are closures](#what-are-closures)                                                                                                                           |
+| 28  | [What are modules](#what-are-modules)                                                                                                                             |
+| 29  | [Why do you need modules](#why-do-you-need-modules)                                                                                                               |
+| 30  | [What is scope in javascript](#what-is-scope-in-javascript)                                                                                                       |
+| 31  | [What is a service worker](#what-is-a-service-worker)                                                                                                             |
+| 32  | [How do you manipulate DOM using a service worker](#how-do-you-manipulate-dom-using-a-service-worker)                                                             |
+| 33  | [How do you reuse information across service worker restarts](#how-do-you-reuse-information-across-service-worker-restarts)                                       |
+| 34  | [What is IndexedDB](#what-is-indexeddb)                                                                                                                           |
+| 35  | [What is web storage](#what-is-web-storage)                                                                                                                       |
+| 36  | [What is a post message](#what-is-a-post-message)                                                                                                                 |
+| 37  | [What is a cookie](#what-is-a-cookie)                                                                                                                             |
+| 38  | [Why do you need a Cookie](#why-do-you-need-a-cookie)                                                                                                             |
+| 39  | [What are the options in a cookie](#what-are-the-options-in-a-cookie)                                                                                             |
+| 40  | [How do you delete a cookie](#how-do-you-delete-a-cookie)                                                                                                         |
+| 41  | [What are the differences between cookie, local storage and session storage](#What-are-the-differences-between-cookie-local-storage-and-session-storage)          |
+| 42  | [What is the main difference between localStorage and sessionStorage](#what-is-the-main-difference-between-localstorage-and-sessionstorage)                       |
+| 43  | [How do you access web storage](#how-do-you-access-web-storage)                                                                                                   |
+| 44  | [What are the methods available on session storage](#what-are-the-methods-available-on-session-storage)                                                           |
+| 45  | [What is a storage event and its event handler](#what-is-a-storage-event-and-its-event-handler)                                                                   |
+| 46  | [Why do you need web storage](#why-do-you-need-web-storage)                                                                                                       |
+| 47  | [How do you check web storage browser support](#how-do-you-check-web-storage-browser-support)                                                                     |
+| 48  | [How do you check web workers browser support](#how-do-you-check-web-workers-browser-support)                                                                     |
+| 49  | [Give an example of a web worker](#give-an-example-of-a-web-worker)                                                                                                   |
+| 50  | [What are the restrictions of web workers on DOM](#what-are-the-restrictions-of-web-workers-on-dom)                                                               |
+| 51  | [What is a promise](#what-is-a-promise)                                                                                                                           |
+| 52  | [Why do you need a promise](#why-do-you-need-a-promise)                                                                                                           |
+| 53  | [What are the three states of promise](#what-are-the-three-states-of-promise)                                                                                     |
+| 54  | [What is a callback function](#what-is-a-callback-function)                                                                                                       |
+| 55  | [Why do we need callbacks](#why-do-we-need-callbacks)                                                                                                             |
+| 56  | [What is a callback hell](#what-is-a-callback-hell)                                                                                                               |
+| 57  | [What are server-sent events](#what-are-server-sent-events)                                                                                                         |
+| 58  | [How do you receive server-sent event notifications](#how-do-you-receive-server-sent-event-notifications)                                                         |
+| 59  | [How do you check browser support for server-sent events](#how-do-you-check-browser-support-for-server-sent-events)                                               |
+| 60  | [What are the events available for server sent events](#what-are-the-events-available-for-server-sent-events)                                                     |
+| 61  | [What are the main rules of promise](#what-are-the-main-rules-of-promise)                                                                                         |
+| 62  | [What is callback in callback](#what-is-callback-in-callback)                                                                                                     |
+| 63  | [What is promise chaining](#what-is-promise-chaining)                                                                                                             |
+| 64  | [What is promise.all](#what-is-promiseall)                                                                                                                       |
+| 65  | [What is the purpose of the race method in promise](#what-is-the-purpose-of-the-race-method-in-promise)                                                                   |
+| 66  | [What is a strict mode in javascript](#what-is-a-strict-mode-in-javascript)                                                                                       |
+| 67  | [Why do you need strict mode](#why-do-you-need-strict-mode)                                                                                                       |
+| 68  | [How do you declare strict mode](#how-do-you-declare-strict-mode)                                                                                                 |
+| 69  | [What is the purpose of double exclamation](#what-is-the-purpose-of-double-exclamation)                                                                           |
+| 70  | [What is the purpose of the delete operator](#what-is-the-purpose-of-the-delete-operator)                                                                                 |
+| 71  | [What is typeof operator](#what-is-typeof-operator)                                                                                                               |
+| 72  | [What is undefined property](#what-is-undefined-property)                                                                                                         |
+| 73  | [What is null value](#what-is-null-value)                                                                                                                         |
+| 74  | [What is the difference between null and undefined](#what-is-the-difference-between-null-and-undefined)                                                           |
+| 75  | [What is eval](#What-is-eval)                                                                                                                                     |
+| 76  | [What is the difference between window and document](#what-is-the-difference-between-window-and-document)                                                         |
+| 77  | [How do you access history in javascript](#how-do-you-access-history-in-javascript)                                                                               |
+| 78  | [How do you detect caps lock key turned on or not](#how-do-you-detect-caps-lock-key-turned-on-or-not)                                                             |
+| 79  | [What is isNaN](#what-is-isnan)                                                                                                                                   |
+| 80  | [What are the differences between undeclared and undefined variables](#what-are-the-differences-between-undeclared-and-undefined-variables)                       |
+| 81  | [What are global variables](#what-are-global-variables)                                                                                                           |
+| 82  | [What are the problems with global variables](#what-are-the-problems-with-global-variables)                                                                       |
+| 83  | [What is NaN property](#what-is-nan-property)                                                                                                                     |
+| 84  | [What is the purpose of isFinite function](#what-is-the-purpose-of-isfinite-function)                                                                             |
+| 85  | [What is an event flow](#what-is-an-event-flow)                                                                                                                   |
+| 86  | [What is event bubbling](#what-is-event-bubbling)                                                                                                                 |
+| 87  | [What is event capturing](#what-is-event-capturing)                                                                                                               |
+| 88  | [How do you submit a form using JavaScript](#how-do-you-submit-a-form-using-javascript)                                                                           |
+| 89  | [How do you find operating system details](#how-do-you-find-operating-system-details)                                                                             |
+| 90  | [What is the difference between document load and DOMContentLoaded events](#what-is-the-difference-between-document-load-and-domcontentloaded-events)             |
+| 91  | [What is the difference between native, host and user objects](#what-is-the-difference-between-native-host-and-user-objects)                                     |
+| 92  | [What are the tools or techniques used for debugging JavaScript code](#what-are-the-tools-or-techniques-used-for-debugging-javascript-code)                       |
+| 93  | [What are the pros and cons of promises over callbacks](#what-are-the-pros-and-cons-of-promises-over-callbacks)                                                   |
+| 94  | [What is the difference between an attribute and a property](#what-is-the-difference-between-an-attribute-and-a-property)                                         |
+| 95  | [What is same-origin policy](#what-is-same-origin-policy)                                                                                                         |
+| 96  | [What is the purpose of void 0](#what-is-the-purpose-of-void-0)                                                                                                   |
+| 97  | [Is JavaScript a compiled or interpreted language](#is-javascript-a-compiled-or-interpreted-language)                                                             |
+| 98  | [Is JavaScript a case-sensitive language](#is-javascript-a-case-sensitive-language)                                                                               |
+| 99  | [Is there any relation between Java and JavaScript](#is-there-any-relation-between-java-and-javascript)                                                           |
+| 100 | [What are events](#what-are-events)                                                                                                                               |
+| 101 | [Who created javascript](#who-created-javascript)                                                                                                                 |
+| 102 | [What is the use of preventDefault method](#what-is-the-use-of-preventdefault-method)                                                                             |
+| 103 | [What is the use of stopPropagation method](#what-is-the-use-of-stoppropagation-method)                                                                           |
+| 104 | [What are the steps involved in return false usage](#what-are-the-steps-involved-in-return-false-usage)                                                                       |
+| 105 | [What is BOM](#what-is-bom)                                                                                                                                       |
+| 106 | [What is the use of setTimeout](#what-is-the-use-of-settimeout)                                                                                                   |
+| 107 | [What is the use of setInterval](#what-is-the-use-of-setinterval)                                                                                                 |
+| 108 | [Why is JavaScript treated as Single threaded](#why-is-javascript-treated-as-single-threaded)                                                                     |
+| 109 | [What is an event delegation](#what-is-an-event-delegation)                                                                                                       |
+| 110 | [What is ECMAScript](#what-is-ecmascript)                                                                                                                         |
+| 111 | [What is JSON](#what-is-json)                                                                                                                                     |
+| 112 | [What are the syntax rules of JSON](#what-are-the-syntax-rules-of-json)                                                                                           |
+| 113 | [What is the purpose JSON stringify](#what-is-the-purpose-json-stringify)                                                                                         |
+| 114 | [How do you parse JSON string](#how-do-you-parse-json-string)                                                                                                     |
+| 115 | [Why do you need JSON](#why-do-you-need-json)                                                                                                                     |
+| 116 | [What are PWAs](#what-are-pwas)                                                                                                                                  |
+| 117 | [What is the purpose of clearTimeout method](#what-is-the-purpose-of-cleartimeout-method)                                                                         |
+| 118 | [What is the purpose of clearInterval method](#what-is-the-purpose-of-clearinterval-method)                                                                       |
+| 119 | [How do you redirect new page in javascript](#how-do-you-redirect-new-page-in-javascript)                                                                         |
+| 120 | [How do you check whether a string contains a substring](#how-do-you-check-whether-a-string-contains-a-substring)                                                 |
+| 121 | [How do you validate an email in javascript](#how-do-you-validate-an-email-in-javascript)                                                                         |
+| 122 | [How do you get the current url with javascript](#how-do-you-get-the-current-url-with-javascript)                                                                 |
+| 123 | [What are the various url properties of location object](#what-are-the-various-url-properties-of-location-object)                                                 |
+| 124 | [How do get query string values in javascript](#how-do-get-query-string-values-in-javascript)                                                                     |
+| 125 | [How do you check if a key exists in an object](#how-do-you-check-if-a-key-exists-in-an-object)                                                                   |
+| 126 | [How do you loop through or enumerate javascript object](#how-do-you-loop-through-or-enumerate-javascript-object)                                                 |
+| 127 | [How do you test for an empty object](#how-do-you-test-for-an-empty-object)                                                                                       |
+| 128 | [What is an arguments object](#what-is-an-arguments-object)                                                                                                       |
+| 129 | [How do you make first letter of the string in an uppercase](#how-do-you-make-first-letter-of-the-string-in-an-uppercase)                                         |
+| 130 | [What are the pros and cons of for loop](#what-are-the-pros-and-cons-of-for-loop)                                                                                 |
+| 131 | [How do you display the current date in javascript](#how-do-you-display-the-current-date-in-javascript)                                                           |
+| 132 | [How do you compare two date objects](#how-do-you-compare-two-date-objects)                                                                                       |
+| 133 | [How do you check if a string starts with another string](#how-do-you-check-if-a-string-starts-with-another-string)                                               |
+| 134 | [How do you trim a string in javascript](#how-do-you-trim-a-string-in-javascript)                                                                                 |
+| 135 | [How do you add a key value pair in javascript](#how-do-you-add-a-key-value-pair-in-javascript)                                                                   |
+| 136 | [Is the '!--' notation represents a special operator](#is-the----notation-represents-a-special-operator)                                                           |
+| 137 | [How do you assign default values to variables](#how-do-you-assign-default-values-to-variables)                                                                   |
+| 138 | [How do you define multiline strings](#how-do-you-define-multiline-strings)                                                                                       |
+| 139 | [What is an app shell model](#what-is-an-app-shell-model)                                                                                                         |
+| 140 | [Can we define properties for functions](#can-we-define-properties-for-functions)                                                                                 |
+| 141 | [What is the way to find the number of parameters expected by a function](#what-is-the-way-to-find-the-number-of-parameters-expected-by-a-function)               |
+| 142 | [What is a polyfill](#what-is-a-polyfill)                                                                                                                         |
+| 143 | [What are break and continue statements](#what-are-break-and-continue-statements)                                                                                 |
+| 144 | [What are js labels](#what-are-js-labels)                                                                                                                         |
+| 145 | [What are the benefits of keeping declarations at the top](#what-are-the-benefits-of-keeping-declarations-at-the-top)                                             |
+| 146 | [What are the benefits of initializing variables](#what-are-the-benefits-of-initializing-variables)                                                               |
+| 147 | [What are the recommendations to create new object](#what-are-the-recommendations-to-create-new-object)                                                           |
+| 148 | [How do you define JSON arrays](#how-do-you-define-json-arrays)                                                                                                   |
+| 149 | [How do you generate random integers](#how-do-you-generate-random-integers)                                                                                       |
+| 150 | [Can you write a random integers function to print integers with in a range](#can-you-write-a-random-integers-function-to-print-integers-with-in-a-range)         |
+| 151 | [What is tree shaking](#what-is-tree-shaking)                                                                                                                     |
+| 152 | [What is the need of tree shaking](#what-is-the-need-of-tree-shaking)                                                                                             |
+| 153 | [Is it recommended to use eval](#is-it-recommended-to-use-eval)                                                                                                   |
+| 154 | [What is a Regular Expression](#what-is-a-regular-expression)                                                                                                     |
+| 155 | [What are the string methods available in Regular expression](#what-are-the-string-methods-available-in-regular-expression)                                       |
+| 156 | [What are modifiers in regular expression](#what-are-modifiers-in-regular-expression)                                                                             |
+| 157 | [What are regular expression patterns](#what-are-regular-expression-patterns)                                                                                     |
+| 158 | [What is a RegExp object](#what-is-a-regexp-object)                                                                                                               |
+| 159 | [How do you search a string for a pattern](#how-do-you-search-a-string-for-a-pattern)                                                                             |
+| 160 | [What is the purpose of exec method](#what-is-the-purpose-of-exec-method)                                                                                         |
+| 161 | [How do you change the style of a HTML element](#how-do-you-change-the-style-of-a-html-element)                                                                           |
+| 162 | [What would be the result of 1+2+'3'](#what-would-be-the-result-of-123)                                                                                       |
+| 163 | [What is a debugger statement](#what-is-a-debugger-statement)                                                                                                     |
+| 164 | [What is the purpose of breakpoints in debugging](#what-is-the-purpose-of-breakpoints-in-debugging)                                                                |
+| 165 | [Can I use reserved words as identifiers](#can-i-use-reserved-words-as-identifiers)                                                                               |
+| 166 | [How do you detect a mobile browser](#how-do-you-detect-a-mobile-browser)                                                                                         |
+| 167 | [How do you detect a mobile browser without regexp](#how-do-you-detect-a-mobile-browser-without-regexp)                                                           |
+| 168 | [How do you get the image width and height using JS](#how-do-you-get-the-image-width-and-height-using-js)                                                         |
+| 169 | [How do you make synchronous HTTP request](#how-do-you-make-synchronous-http-request)                                                                             |
+| 170 | [How do you make asynchronous HTTP request](#how-do-you-make-asynchronous-http-request)                                                                           |
+| 171 | [How do you convert date to another timezone in javascript](#how-do-you-convert-date-to-another-timezone-in-javascript)                                           |
+| 172 | [What are the properties used to get size of window](#what-are-the-properties-used-to-get-size-of-window)                                                         |
+| 173 | [What is a conditional operator in javascript](#what-is-a-conditional-operator-in-javascript)                                                                     |
+| 174 | [Can you apply chaining on conditional operator](#Can-you-apply-chaining-on-conditional-operator)                                                                 |
+| 175 | [What are the ways to execute javascript after page load](#what-are-the-ways-to-execute-javascript-after-page-load)                                               |
+| 176 | [What is the difference between proto and prototype](#what-is-the-difference-between-proto-and-prototype)                                                         |
+| 177 | [Give an example where do you really need semicolon](#give-an-example-where-do-you-really-need-semicolon)                                                         |
+| 178 | [What is a freeze method](#what-is-a-freeze-method)                                                                                                               |
+| 179 | [What is the purpose of freeze method](#what-is-the-purpose-of-freeze-method)                                                                                     |
+| 180 | [Why do I need to use freeze method](#why-do-i-need-to-use-freeze-method)                                                                                         |
+| 181 | [How do you detect a browser language preference](#how-do-you-detect-a-browser-language-preference)                                                               |
+| 182 | [How to convert string to title case with javascript](#how-to-convert-string-to-title-case-with-javascript)                                                       |
+| 183 | [How do you detect javascript disabled in the page](#how-do-you-detect-javascript-disabled-in-the-page)                                                           |
+| 184 | [What are various operators supported by javascript](#what-are-various-operators-supported-by-javascript)                                                         |
+| 185 | [What is a rest parameter](#what-is-a-rest-parameter)                                                                                                             |
+| 186 | [What happens if you do not use rest parameter as a last argument](#what-happens-if-you-do-not-use-rest-parameter-as-a-last-argument)                             |
+| 187 | [What are the bitwise operators available in javascript](#what-are-the-bitwise-operators-available-in-javascript)                                                 |
+| 188 | [What is a spread operator](#what-is-a-spread-operator)                                                                                                           |
+| 189 | [How do you determine whether object is frozen or not](#how-do-you-determine-whether-object-is-frozen-or-not)                                                     |
+| 190 | [How do you determine two values same or not using object](#how-do-you-determine-two-values-same-or-not-using-object)                                             |
+| 191 | [What is the purpose of using object is method](#what-is-the-purpose-of-using-object-is-method)                                                                   |
+| 192 | [How do you copy properties from one object to other](#how-do-you-copy-properties-from-one-object-to-other)                                                       |
+| 193 | [What are the applications of assign method](#what-are-the-applications-of-assign-method)                                                                         |
+| 194 | [What is a proxy object](#what-is-a-proxy-object)                                                                                                                 |
+| 195 | [What is the purpose of seal method](#what-is-the-purpose-of-seal-method)                                                                                         |
+| 196 | [What are the applications of seal method](#what-are-the-applications-of-seal-method)                                                                             |
+| 197 | [What are the differences between freeze and seal methods](#what-are-the-differences-between-freeze-and-seal-methods)                                             |
+| 198 | [How do you determine if an object is sealed or not](#how-do-you-determine-if-an-object-is-sealed-or-not)                                                         |
+| 199 | [How do you get enumerable key and value pairs](#how-do-you-get-enumerable-key-and-value-pairs)                                                                   |
+| 200 | [What is the main difference between Object.values and Object.entries method](#what-is-the-main-difference-between-objectvalues-and-objectentries-method)       |
+| 201 | [How can you get the list of keys of any object](#how-can-you-get-the-list-of-keys-of-any-object)                                                                 |
+| 202 | [How do you create an object with prototype](#how-do-you-create-an-object-with-prototype)                                                                         |
+| 203 | [What is a WeakSet](#what-is-a-weakset)                                                                                                                           |
+| 204 | [What are the differences between WeakSet and Set](#what-are-the-differences-between-weakset-and-set)                                                             |
+| 205 | [List down the collection of methods available on WeakSet](#list-down-the-collection-of-methods-available-on-weakset)                                             |
+| 206 | [What is a WeakMap](#what-is-a-weakmap)                                                                                                                           |
+| 207 | [What are the differences between WeakMap and Map](#what-are-the-differences-between-weakmap-and-map)                                                             |
+| 208 | [List down the collection of methods available on WeakMap](#list-down-the-collection-of-methods-available-on-weakmap)                                             |
+| 209 | [What is the purpose of uneval](#what-is-the-purpose-of-uneval)                                                                                                   |
+| 210 | [How do you encode an URL](#how-do-you-encode-an-url)                                                                                                             |
+| 211 | [How do you decode an URL](#how-do-you-decode-an-url)                                                                                                             |
+| 212 | [How do you print the contents of web page](#how-do-you-print-the-contents-of-web-page)                                                                           |
+| 213 | [What is the difference between uneval and eval](#what-is-the-difference-between-uneval-and-eval)                                                                 |
+| 214 | [What is an anonymous function](#what-is-an-anonymous-function)                                                                                                   |
+| 215 | [What is the precedence order between local and global variables](#what-is-the-precedence-order-between-local-and-global-variables)                               |
+| 216 | [What are javascript accessors](#what-are-javascript-accessors)                                                                                                   |
+| 217 | [How do you define property on Object constructor](#how-do-you-define-property-on-object-constructor)                                                             |
+| 218 | [What is the difference between get and defineProperty](#what-is-the-difference-between-get-and-defineproperty)                                                   |
+| 219 | [What are the advantages of Getters and Setters](#what-are-the-advantages-of-getters-and-setters)                                                                 |
+| 220 | [Can I add getters and setters using defineProperty method](#can-i-add-getters-and-setters-using-defineproperty-method)                                           |
+| 221 | [What is the purpose of switch-case](#what-is-the-purpose-of-switch-case)                                                                                         |
+| 222 | [What are the conventions to be followed for the usage of switch case](#what-are-the-conventions-to-be-followed-for-the-usage-of-switch-case)                     |
+| 223 | [What are primitive data types](#what-are-primitive-data-types)                                                                                                   |
+| 224 | [What are the different ways to access object properties](#what-are-the-different-ways-to-access-object-properties)                                               |
+| 225 | [What are the function parameter rules](#what-are-the-function-parameter-rules)                                                                                   |
+| 226 | [What is an error object](#what-is-an-error-object)                                                                                                               |
+| 227 | [When you get a syntax error](#when-you-get-a-syntax-error)                                                                                                       |
+| 228 | [What are the different error names from error object](#what-are-the-different-error-names-from-error-object)                                                     |
+| 229 | [What are the various statements in error handling](#what-are-the-various-statements-in-error-handling)                                                           |
+| 230 | [What are the two types of loops in javascript](#what-are-the-two-types-of-loops-in-javascript)                                                                   |
+| 231 | [What is nodejs](#what-is-nodejs)                                                                                                                                 |
+| 232 | [What is an Intl object](#what-is-an-intl-object)                                                                                                                 |
+| 233 | [How do you perform language specific date and time formatting](#how-do-you-perform-language-specific-date-and-time-formatting)                                   |
+| 234 | [What is an Iterator](#what-is-an-iterator)                                                                                                                       |
+| 235 | [How does synchronous iteration works](#how-does-synchronous-iteration-works)                                                                                     |
+| 236 | [What is an event loop](#what-is-an-event-loop)                                                                                                                   |
+| 237 | [What is call stack](#what-is-call-stack)                                                                                                                         |
+| 238 | [What is an event queue](#what-is-an-event-queue)                                                                                                                 |
+| 239 | [What is a decorator](#what-is-a-decorator)                                                                                                                       |
+| 240 | [What are the properties of Intl object](#what-are-the-properties-of-intl-object)                                                                                 |
+| 241 | [What is an Unary operator](#what-is-an-unary-operator)                                                                                                           |
+| 242 | [How do you sort elements in an array](#how-do-you-sort-elements-in-an-array)                                                                                     |
+| 243 | [What is the purpose of compareFunction while sorting arrays](#what-is-the-purpose-of-comparefunction-while-sorting-arrays)                                       |
+| 244 | [How do you reversing an array](#how-do-you-reversing-an-array)                                                                                                   |
+| 245 | [How do you find min and max value in an array](#how-do-you-find-min-and-max-value-in-an-array)                                                                   |
+| 246 | [How do you find min and max values without Math functions](#how-do-you-find-min-and-max-values-without-math-functions)                                          |
+| 247 | [What is an empty statement and purpose of it](#what-is-an-empty-statement-and-purpose-of-it)                                                                     |
+| 248 | [How do you get metadata of a module](#how-do-you-get-metadata-of-a-module)                                                                                     |
+| 249 | [What is a comma operator](#what-is-a-comma-operator)                                                                                                             |
+| 250 | [What is the advantage of a comma operator](#what-is-the-advantage-of-a-comma-operator)                                                                           |
+| 251 | [What is typescript](#what-is-typescript)                                                                                                                         |
+| 252 | [What are the differences between javascript and typescript](#what-are-the-differences-between-javascript-and-typescript)                                         |
+| 253 | [What are the advantages of typescript over javascript](#what-are-the-advantages-of-typescript-over-javascript)                                                   |
+| 254 | [What is an object initializer](#what-is-an-object-initializer)                                                                                                   |
+| 255 | [What is a constructor method](#what-is-a-constructor-method)                                                                                                     |
+| 256 | [What happens if you write constructor more than once in a class](#what-happens-if-you-write-constructor-more-than-once-in-a-class)                               |
+| 257 | [How do you call the constructor of a parent class](#how-do-you-call-the-constructor-of-a-parent-class)                                                           |
+| 258 | [How do you get the prototype of an object](#how-do-you-get-the-prototype-of-an-object)                                                                           |
+| 259 | [What happens If I pass string type for getPrototype method](#what-happens-if-i-pass-string-type-for-getprototype-method)                                         |
+| 260 | [How do you set prototype of one object to another](#how-do-you-set-prototype-of-one-object-to-another)                                                           |
+| 261 | [How do you check whether an object can be extendable or not](#how-do-you-check-whether-an-object-can-be-extendable-or-not)                                       |
+| 262 | [How do you prevent an object to extend](#how-do-you-prevent-an-object-to-extend)                                                                                 |
+| 263 | [What are the different ways to make an object non-extensible](#what-are-the-different-ways-to-make-an-object-non-extensible)                                     |
+| 264 | [How do you define multiple properties on an object](#how-do-you-define-multiple-properties-on-an-object)                                                         |
+| 265 | [What is MEAN in javascript](#what-is-mean-in-javascript)                                                                                                         |
+| 266 | [What Is Obfuscation in javascript](#what-is-obfuscation-in-javascript)                                                                                           |
+| 267 | [Why do you need Obfuscation](#why-do-you-need-obfuscation)                                                                                                       |
+| 268 | [What is Minification](#what-is-minification)                                                                                                                     |
+| 269 | [What are the advantages of minification](#what-are-the-advantages-of-minification)                                                                               |
+| 270 | [What are the differences between Obfuscation and Encryption](#what-are-the-differences-between-obfuscation-and-encryption)                                       |
+| 271 | [What are the common tools used for minification](#what-are-the-common-tools-used-for-minification)                                                               |
+| 272 | [How do you perform form validation using javascript](#how-do-you-perform-form-validation-using-javascript)                                                       |
+| 273 | [How do you perform form validation without javascript](#how-do-you-perform-form-validation-without-javascript)                                                   |
+| 274 | [What are the DOM methods available for constraint validation](#what-are-the-dom-methods-available-for-constraint-validation)                                     |
+| 275 | [What are the available constraint validation DOM properties](#what-are-the-available-constraint-validation-dom-properties)                                       |
+| 276 | [What are the list of validity properties](#what-are-the-list-of-validity-properties)                                                                             |
+| 277 | [Give an example usage of rangeOverflow property](#give-an-example-usage-of-rangeoverflow-property)                                                               |
+| 278 | [Is enums feature available in javascript](#is-enums-feature-available-in-javascript)                                                                             |
+| 279 | [What is an enum](#What-is-an-enum)                                                                                                                               |
+| 280 | [How do you list all properties of an object](#how-do-you-list-all-properties-of-an-object)                                                                       |
+| 281 | [How do you get property descriptors of an object](#how-do-you-get-property-descriptors-of-an-object)                                                             |
+| 282 | [What are the attributes provided by a property descriptor](#what-are-the-attributes-provided-by-a-property-descriptor)                                           |
+| 283 | [How do you extend classes](#how-do-you-extend-classes)                                                                                                           |
+| 284 | [How do I modify the url without reloading the page](#how-do-i-modify-the-url-without-reloading-the-page)                                                         |
+| 285 | [How do you check whether an array includes a particular value or not](#how-do-you-check-whether-an-array-includes-a-particular-value-or-not)                     |
+| 286 | [How do you compare scalar arrays](#how-do-you-compare-scalar-arrays)                                                                                             |
+| 287 | [How to get the value from get parameters](#how-to-get-the-value-from-get-parameters)                                                                             |
+| 288 | [How do you print numbers with commas as thousand separators](#how-do-you-print-numbers-with-commas-as-thousand-separators)                                       |
+| 289 | [What is the difference between java and javascript](#what-is-the-difference-between-java-and-javascript)                                                         |
+| 290 | [Does javascript supports namespace](#does-javascript-supports-namespace)                                                                                         |
+| 291 | [How do you declare namespace](#how-do-you-declare-namespace)                                                                                                     |
+| 292 | [How do you invoke javascript code in an iframe from parent page](#how-do-you-invoke-javascript-code-in-an-iframe-from-parent-page)                               |
+| 293 | [How do get the timezone offset from date](#how-do-get-the-timezone-offset-from-date)                                                                             |
+| 294 | [How do you load CSS and JS files dynamically](#how-do-you-load-css-and-js-files-dynamically)                                                                     |
+| 295 | [What are the different methods to find HTML elements in DOM](#what-are-the-different-methods-to-find-html-elements-in-dom)                                       |
+| 296 | [What is jQuery](#what-is-jquery)                                                                                                                                 |
+| 297 | [What is V8 JavaScript engine](#what-is-v8-javascript-engine)                                                                                                     |
+| 298 | [Why do we call javascript as dynamic language](#why-do-we-call-javascript-as-dynamic-language)                                                                   |
+| 299 | [What is a void operator](#what-is-a-void-operator)                                                                                                               |
+| 300 | [How to set the cursor to wait](#how-to-set-the-cursor-to-wait)                                                                                                   |
+| 301 | [How do you create an infinite loop](#how-do-you-create-an-infinite-loop)                                                                                         |
+| 302 | [Why do you need to avoid with statement](#why-do-you-need-to-avoid-with-statement)                                                                               |
+| 303 | [What is the output of below for loops](#what-is-the-output-of-below-for-loops)                                                                                   |
+| 304 | [List down some of the features of ES6](#list-down-some-of-the-features-of-es6)                                                                                   |
+| 305 | [What is ES6](#what-is-es6)                                                                                                                                       |
+| 306 | [Can I redeclare let and const variables](#can-I-redeclare-let-and-const-variables)                                                                               |
+| 307 | [Is const variable makes the value immutable](#is-const-variable-makes-the-value-immutable)                                                                       |
+| 308 | [What are default parameters](#what-are-default-parameters)                                                                                                       |
+| 309 | [What are template literals](#what-are-template-literals)                                                                                                         |
+| 310 | [How do you write multi-line strings in template literals](#how-do-you-write-multi-line-strings-in-template-literals)                                             |
+| 311 | [What are nesting templates](#what-are-nesting-templates)                                                                                                         |
+| 312 | [What are tagged templates](#what-are-tagged-templates)                                                                                                           |
+| 313 | [What are raw strings](#what-are-raw-strings)                                                                                                                     |
+| 314 | [What is destructuring assignment](#what-is-destructuring-assignment)                                                                                             |
+| 315 | [What are default values in destructuring assignment](#what-are-default-values-in-destructuring-assignment)                                                       |
+| 316 | [How do you swap variables in destructuring assignment](#how-do-you-swap-variables-in-destructuring-assignment)                                                   |
+| 317 | [What are enhanced object literals](#what-are-enhanced-object-literals)                                                                                           |
+| 318 | [What are dynamic imports](#what-are-dynamic-imports)                                                                                                             |
+| 319 | [What are the use cases for dynamic imports](#what-are-the-use-cases-for-dynamic-imports)                                                                         |
+| 320 | [What are typed arrays](#what-are-typed-arrays)                                                                                                                   |
+| 321 | [What are the advantages of module loaders](#what-are-the-advantages-of-module-loaders)                                                                           |
+| 322 | [What is collation](#what-is-collation)                                                                                                                           |
+| 323 | [What is for...of statement](#what-is-forof-statement)                                                                                                         |
+| 324 | [What is the output of below spread operator array](#what-is-the-output-of-below-spread-operator-array)                                                           |
+| 325 | [Is PostMessage secure](#is-postmessage-secure)                                                                                                                   |
+| 326 | [What are the problems with postmessage target origin as wildcard](#what-are-the-problems-with-postmessage-target-origin-as-wildcard)                             |
+| 327 | [How do you avoid receiving postMessages from attackers](#how-do-you-avoid-receiving-postmessages-from-attackers)                                                 |
+| 328 | [Can I avoid using postMessages completely](#can-i-avoid-using-postmessages-completely)                                                                           |
+| 329 | [Is postMessages synchronous](#is-postmessages-synchronous)                                                                                                       |
+| 330 | [What paradigm is Javascript](#what-paradigm-is-javascript)                                                                                                       |
+| 331 | [What is the difference between internal and external javascript](#what-is-the-difference-between-internal-and-external-javascript)                               |
+| 332 | [Is JavaScript faster than server side script](#is-javascript-faster-than-server-side-script)                                                                     |
+| 333 | [How do you get the status of a checkbox](#how-do-you-get-the-status-of-a-checkbox)                                                                               |
+| 334 | [What is the purpose of double tilde operator](#what-is-the-purpose-of-double-tilde-operator)                                                                     |
+| 335 | [How do you convert character to ASCII code](#how-do-you-convert-character-to-ascii-code)                                                                         |
+| 336 | [What is ArrayBuffer](#what-is-arraybuffer)                                                                                                                       |
+| 337 | [What is the output of below string expression](#what-is-the-output-of-below-string-expression)                                                                   |
+| 338 | [What is the purpose of Error object](#what-is-the-purpose-of-error-object)                                                                                       |
+| 339 | [What is the purpose of EvalError object](#what-is-the-purpose-of-evalerror-object)                                                                               |
+| 340 | [What are the list of cases error thrown from non-strict mode to strict mode](#what-are-the-list-of-cases-error-thrown-from-non-strict-mode-to-strict-mode)       |
+| 341 | [Do all objects have prototypes](#do-all-objects-have-prototypes)                                                                                                 |
+| 342 | [What is the difference between a parameter and an argument](#what-is-the-difference-between-a-parameter-and-an-argument)                                         |
+| 343 | [What is the purpose of some method in arrays](#what-is-the-purpose-of-some-method-in-arrays)                                                                     |
+| 344 | [How do you combine two or more arrays](#how-do-you-combine-two-or-more-arrays)                                                                                   |
+| 345 | [What is the difference between Shallow and Deep copy](#what-is-the-difference-between-shallow-and-deep-copy)                                                     |
+| 346 | [How do you create specific number of copies of a string](#how-do-you-create-specific-number-of-copies-of-a-string)                                               |
+| 347 | [How do you return all matching strings against a regular expression](#how-do-you-return-all-matching-strings-against-a-regular-expression)                       |
+| 348 | [How do you trim a string at the beginning or ending](#how-do-you-trim-a-string-at-the-beginning-or-ending)                                                       |
+| 349 | [What is the output of below console statement with unary operator](#what-is-the-output-of-below-console-statement-with-unary-operator)                           |
+| 350 | [Does javascript uses mixins](#does-javascript-uses-mixins)                                                                                                       |
+| 351 | [What is a thunk function](#what-is-a-thunk-function)                                                                                                             |
+| 352 | [What are asynchronous thunks](#what-are-asynchronous-thunks)                                                                                                     |
+| 353 | [What is the output of below function calls](#what-is-the-output-of-below-function-calls)                                                                         |
+| 354 | [How to remove all line breaks from a string](#how-to-remove-all-line-breaks-from-a-string)                                                                       |
+| 355 | [What is the difference between reflow and repaint](#what-is-the-difference-between-reflow-and-repaint)                                                           |
+| 356 | [What happens with negating an array](#what-happens-with-negating-an-array)                                                                                       |
+| 357 | [What happens if we add two arrays](#what-happens-if-we-add-two-arrays)                                                                                           |
+| 358 | [What is the output of prepend additive operator on falsy values](#what-is-the-output-of-prepend-additive-operator-on-falsy-values)                               |
+| 359 | [How do you create self string using special characters](#how-do-you-create-self-string-using-special-characters)                                                 |
+| 360 | [How do you remove falsy values from an array](#how-do-you-remove-falsy-values-from-an-array)                                                                     |
+| 361 | [How do you get unique values of an array](#how-do-you-get-unique-values-of-an-array)                                                                             |
+| 362 | [What is destructuring aliases](#what-is-destructuring-aliases)                                                                                                   |
+| 363 | [How do you map the array values without using map method](#how-do-you-map-the-array-values-without-using-map-method)                                             |
+| 364 | [How do you empty an array](#how-do-you-empty-an-array)                                                                                                           |
+| 365 | [How do you rounding numbers to certain decimals](#how-do-you-rounding-numbers-to-certain-decimals)                                                               |
+| 366 | [What is the easiest way to convert an array to an object](#what-is-the-easiest-way-to-convert-an-array-to-an-object)                                             |
+| 367 | [How do you create an array with some data](#how-do-you-create-an-array-with-some-data)                                                                           |
+| 368 | [What are the placeholders from console object](#what-are-the-placeholders-from-console-object)                                                                   |
+| 369 | [Is it possible to add CSS to console messages](#is-it-possible-to-add-css-to-console-messages)                                                                   |
+| 370 | [What is the purpose of dir method of console object](#what-is-the-purpose-of-dir-method-of-console-object)                                                       |
+| 371 | [Is it possible to debug HTML elements in console](#is-it-possible-to-debug-html-elements-in-console)                                                             |
+| 372 | [How do you display data in a tabular format using console object](#how-do-you-display-data-in-a-tabular-format-using-console-object)                             |
+| 373 | [How do you verify that an argument is a Number or not](#how-do-you-verify-that-an-argument-is-a-number-or-not)                                                   |
+| 374 | [How do you create copy to clipboard button](#how-do-you-create-copy-to-clipboard-button)                                                                         |
+| 375 | [What is the shortcut to get timestamp](#what-is-the-shortcut-to-get-timestamp)                                                                                   |
+| 376 | [How do you flattening multi dimensional arrays](#how-do-you-flattening-multi-dimensional-arrays)                                                                 |
+| 377 | [What is the easiest multi condition checking](#what-is-the-easiest-multi-condition-checking)                                                                     |
+| 378 | [How do you capture browser back button](#how-do-you-capture-browser-back-button)                                                                                 |
+| 379 | [How do you disable right click in the web page](#how-do-you-disable-right-click-in-the-web-page)                                                                 |
+| 380 | [What are wrapper objects](#what-are-wrapper-objects)                                                                                                             |
+| 381 | [What is AJAX](#what-is-ajax)                                                                                                                                     |
+| 382 | [What are the different ways to deal with Asynchronous Code](#what-are-the-different-ways-to-deal-with-asynchronous-code)                                         |
+| 383 | [How to cancel a fetch request](#how-to-cancel-a-fetch-request)                                                                                                   |
+| 384 | [What is web speech API](#what-is-web-speech-api)                                                                                                                 |
+| 385 | [What is minimum timeout throttling](#what-is-minimum-timeout-throttling)                                                                                         |
+| 386 | [How do you implement zero timeout in modern browsers](#how-do-you-implement-zero-timeout-in-modern-browsers)                                                     |
+| 387 | [What are tasks in event loop](#what-are-tasks-in-event-loop)                                                                                                     |
+| 388 | [What is microtask](#what-is-microtask)                                                                                                                       |
+| 389 | [What are different event loops](#what-are-different-event-loops)                                                                                                 |
+| 390 | [What is the purpose of queueMicrotask](#what-is-the-purpose-of-queuemicrotask)                                                                                   |
+| 391 | [How do you use javascript libraries in typescript file](#how-do-you-use-javascript-libraries-in-typescript-file)                                                 |
+| 392 | [What are the differences between promises and observables](#what-are-the-differences-between-promises-and-observables)                                           |
+| 393 | [What is heap](#what-is-heap)                                                                                                                                     |
+| 394 | [What is an event table](#what-is-an-event-table)                                                                                                                 |
+| 395 | [What is a microTask queue](#what-is-a-microtask-queue)                                                                                                           |
+| 396 | [What is the difference between shim and polyfill](#what-is-the-difference-between-shim-and-polyfill)                                                             |
+| 397 | [How do you detect primitive or non primitive value type](#how-do-you-detect-primitive-or-non-primitive-value-type)                                               |
+| 398 | [What is babel](#what-is-babel)                                                                                                                                   |
+| 399 | [Is Node.js completely single threaded](#is-nodejs-completely-single-threaded)                                                                                   |
+| 400 | [What are the common use cases of observables](#what-are-the-common-use-cases-of-observables)                                                                     |
+| 401 | [What is RxJS](#what-is-rxjs)                                                                                                                                     |
+| 402 | [What is the difference between Function constructor and function declaration](#what-is-the-difference-between-function-constructor-and-function-declaration)     |
+| 403 | [What is a Short circuit condition](#what-is-a-short-circuit-condition)                                                                                           |
+| 404 | [What is the easiest way to resize an array](#what-is-the-easiest-way-to-resize-an-array)                                                                         |
+| 405 | [What is an observable](#what-is-an-observable)                                                                                                                   |
+| 406 | [What is the difference between function and class declarations](#what-is-the-difference-between-function-and-class-declarations)                                 |
+| 407 | [What is an async function](#what-is-an-async-function)                                                                                                           |
+| 408 | [How do you prevent promises swallowing errors](#how-do-you-prevent-promises-swallowing-errors)                                                                   |
+| 409 | [What is deno](#what-is-deno)                                                                                                                                     |
+| 410 | [How do you make an object iterable in javascript](#how-do-you-make-an-object-iterable-in-javascript)                                                             |
+| 411 | [What is a Proper Tail Call](#what-is-a-proper-tail-call)                                                                                                         |
+| 412 | [How do you check an object is a promise or not](#how-do-you-check-an-object-is-a-promise-or-not)                                                                 |
+| 413 | [How to detect if a function is called as constructor](#how-to-detect-if-a-function-is-called-as-constructor)                                                     |
+| 414 | [What are the differences between arguments object and rest parameter](#what-are-the-differences-between-arguments-object-and-rest-parameter)                     |
+| 415 | [What are the differences between spread operator and rest parameter](#what-are-the-differences-between-spread-operator-and-rest-parameter)                       |
+| 416 | [What are the different kinds of generators](#what-are-the-different-kinds-of-generators)                                                                         |
+| 417 | [What are the built-in iterables](#what-are-the-built-in-iterables)                                                                                               |
+| 418 | [What are the differences between for...of and for...in statements](#what-are-the-differences-between-forof-and-forin-statements)                           |
+| 419 | [How do you define instance and non-instance properties](#how-do-you-define-instance-and-non-instance-properties)                                                 |
+| 420 | [What is the difference between isNaN and Number.isNaN?](#what-is-the-difference-between-isnan-and-numberisnan)                                                  |
+| 421 | [How to invoke an IIFE without any extra brackets?](#how-to-invoke-an-iife-without-any-extra-brackets)                                                            |
+| 422 | [Is that possible to use expressions in switch cases?](#is-that-possible-to-use-expressions-in-switch-cases)                                                      |
+| 423 | [What is the easiest way to ignore promise errors?](#what-is-the-easiest-way-to-ignore-promise-errors)                                                            |
+| 424 | [How do style the console output using CSS?](#how-do-style-the-console-output-using-css)                                                                          |
+| 425 | [What is nullish coalescing operator (??)?](#what-is-nullish-coalescing-operator)                                                                           |
+| 426 | [How do you group and nest console output?](#how-do-you-group-and-nest-console-output)                                                                            |
+| 427 | [What is the difference between dense and sparse arrays?](#what-is-the-difference-between-dense-and-sparse-arrays)                                                |
+| 428 | [What are the different ways to create sparse arrays?](#what-are-the-different-ways-to-create-sparse-arrays)                                                      |
+| 429 | [What is the difference between setTimeout, setImmediate and process.nextTick?](#what-is-the-difference-between-settimeout-setimmediate-and-processnexttick) |
+| 430 | [How do you reverse an array without modifying original array?](#how-do-you-reverse-an-array-without-modifying-original-array)                                    |
+| 431 | [How do you create custom HTML element?](#how-do-you-create-custom-html-element)                                                                                  |
+| 432 | [What is global execution context?](#what-is-global-execution-context)                                                                                            |
+| 433 | [What is function execution context?](#what-is-function-execution-context)                                                                                        |
+| 434 | [What is debouncing?](#what-is-debouncing)                                                                                                                        |
+| 435 | [What is throttling?](#what-is-throttling)                                                                                                                        |
+| 436 | [What is optional chaining?](#what-is-optional-chaining)                                                                                                          |
+| 437 | [What is an environment record?](#what-is-an-environment-record)                                                                                                  |
+| 438 | [How to verify if a variable is an array?](#how-to-verify-if-a-variable-is-an-array)                                                                              |
+| 439 | [What is pass by value and pass by reference?](#what-is-pass-by-value-and-pass-by-reference)                                                                      |
+| 440 | [What are the differences between primitives and non-primitives?](#what-are-the-differences-between-primitives-and-non-primitives)                                |
+| 441 | [What are hidden classes?](#what-are-hidden-classes)                                                                                                              |
+| 442 | [What is inline caching?](#what-is-inline-caching)                                                                                                                |
+| 443 | [How do you create your own bind method using either call or apply method?](#how-do-you-create-your-own-bind-method-using-either-call-or-apply-method)            |
+| 444 | [What are the differences between pure and impure functions?](#what-are-the-differences-between-pure-and-impure-functions?)  
+| 445 | [What is  referential transparency?](#what-is-referential-transparency)                                    |
+| 446 | [What are the possible side-effects in javascript?](#what-are-the-possible-side-effects-in-javascript)    |
+| 447 | [What are compose and pipe functions?](#what-are-compose-and-pipe-functions)                               |
+| 448 | [What is module pattern?](#what-is-module-pattern)                                                         |
+| 449 | [What is Functon Composition?](#what-is-function-composition) |
+
+
+
+### Table of Contents
+
+| No. | Questions                                                                                                                                                                                                                        |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|     | **Core React**                                                                                                                                                                                                                   |
+| 1   | [What is React?](#what-is-react)                                                                                                                                                                                                 |
+| 2   | [What are the major features of React?](#what-are-the-major-features-of-react)                                                                                                                                                   |
+| 3   | [What is JSX?](#what-is-jsx)                                                                                                                                                                                                     |
+| 4   | [What is the difference between Element and Component?](#what-is-the-difference-between-element-and-component)                                                                                                                   |
+| 5   | [How to create components in React?](#how-to-create-components-in-react)                                                                                                                                                         |
+| 6   | [When to use a Class Component over a Function Component?](#when-to-use-a-class-component-over-a-function-component)                                                                                                             |
+| 7   | [What are Pure Components?](#what-are-pure-components)                                                                                                                                                                           |
+| 8   | [What is state in React?](#what-is-state-in-react)                                                                                                                                                                               |
+| 9   | [What are props in React?](#what-are-props-in-react)                                                                                                                                                                             |
+| 10  | [What is the difference between state and props?](#what-is-the-difference-between-state-and-props)                                                                                                                               |
+| 11  | [Why should we not update the state directly?](#why-should-we-not-update-the-state-directly)                                                                                                                                     |
+| 12  | [What is the purpose of callback function as an argument of setState()?](#what-is-the-purpose-of-callback-function-as-an-argument-of-setstate)                                                                                   |
+| 13  | [What is the difference between HTML and React event handling?](#what-is-the-difference-between-html-and-react-event-handling)                                                                                                   |
+| 14  | [How to bind methods or event handlers in JSX callbacks?](#how-to-bind-methods-or-event-handlers-in-jsx-callbacks)                                                                                                               |
+| 15  | [How to pass a parameter to an event handler or callback?](#how-to-pass-a-parameter-to-an-event-handler-or-callback)                                                                                                             |
+| 16  | [What are synthetic events in React?](#what-are-synthetic-events-in-react)                                                                                                                                                       |
+| 17  | [What are inline conditional expressions?](#what-are-inline-conditional-expressions)                                                                                                                                             |
+| 18  | [What is "key" prop and what is the benefit of using it in arrays of elements?](#what-is-key-prop-and-what-is-the-benefit-of-using-it-in-arrays-of-elements)                                                                     |
+| 19  | [What is the use of refs?](#what-is-the-use-of-refs)                                                                                                                                                                             |
+| 20  | [How to create refs?](#how-to-create-refs)                                                                                                                                                                                       |
+| 21  | [What are forward refs?](#what-are-forward-refs)                                                                                                                                                                                 |
+| 22  | [Which is preferred option with in callback refs and findDOMNode()?](#which-is-preferred-option-with-in-callback-refs-and-finddomnode)                                                                                           |
+| 23  | [Why are String Refs legacy?](#why-are-string-refs-legacy)                                                                                                                                                                       |
+| 24  | [What is Virtual DOM?](#what-is-virtual-dom)                                                                                                                                                                                     |
+| 25  | [How Virtual DOM works?](#how-virtual-dom-works)                                                                                                                                                                                 |
+| 26  | [What is the difference between Shadow DOM and Virtual DOM?](#what-is-the-difference-between-shadow-dom-and-virtual-dom)                                                                                                         |
+| 27  | [What is React Fiber?](#what-is-react-fiber)                                                                                                                                                                                     |
+| 28  | [What is the main goal of React Fiber?](#what-is-the-main-goal-of-react-fiber)                                                                                                                                                   |
+| 29  | [What are controlled components?](#what-are-controlled-components)                                                                                                                                                               |
+| 30  | [What are uncontrolled components?](#what-are-uncontrolled-components)                                                                                                                                                           |
+| 31  | [What is the difference between createElement and cloneElement?](#what-is-the-difference-between-createelement-and-cloneelement)                                                                                                 |
+| 32  | [What is Lifting State Up in React?](#what-is-lifting-state-up-in-react)                                                                                                                                                         |
+| 33  | [What are the different phases of component lifecycle?](#what-are-the-different-phases-of-component-lifecycle)                                                                                                                   |
+| 34  | [What are the lifecycle methods of React?](#what-are-the-lifecycle-methods-of-react)                                                                                                                                             |
+| 35  | [What are Higher-Order components?](#what-are-higher-order-components)                                                                                                                                                           |
+| 36  | [How to create props proxy for HOC component?](#how-to-create-props-proxy-for-hoc-component)                                                                                                                                     |
+| 37  | [What is context?](#what-is-context)                                                                                                                                                                                             |
+| 38  | [What is children prop?](#what-is-children-prop)                                                                                                                                                                                 |
+| 39  | [How to write comments in React?](#how-to-write-comments-in-react)                                                                                                                                                               |
+| 40  | [What is the purpose of using super constructor with props argument?](#what-is-the-purpose-of-using-super-constructor-with-props-argument)                                                                                       |
+| 41  | [What is reconciliation?](#what-is-reconciliation)                                                                                                                                                                               |
+| 42  | [How to set state with a dynamic key name?](#how-to-set-state-with-a-dynamic-key-name)                                                                                                                                           |
+| 43  | [What would be the common mistake of function being called every time the component renders?](#what-would-be-the-common-mistake-of-function-being-called-every-time-the-component-renders)                                       |
+| 44  | [Is lazy function supports named exports?](#is-lazy-function-supports-named-exports)                                                                                                                                             |
+| 45  | [Why React uses className over class attribute?](#why-react-uses-classname-over-class-attribute)                                                                                                                                 |
+| 46  | [What are fragments?](#what-are-fragments)                                                                                                                                                                                       |
+| 47  | [Why fragments are better than container divs?](#why-fragments-are-better-than-container-divs)                                                                                                                                   |
+| 48  | [What are portals in React?](#what-are-portals-in-react)                                                                                                                                                                         |
+| 49  | [What are stateless components?](#what-are-stateless-components)                                                                                                                                                                 |
+| 50  | [What are stateful components?](#what-are-stateful-components)                                                                                                                                                                   |
+| 51  | [How to apply validation on props in React?](#how-to-apply-validation-on-props-in-react)                                                                                                                                         |
+| 52  | [What are the advantages of React?](#what-are-the-advantages-of-react)                                                                                                                                                           |
+| 53  | [What are the limitations of React?](#what-are-the-limitations-of-react)                                                                                                                                                         |
+| 54  | [What are error boundaries in React v16](#what-are-error-boundaries-in-react-v16)                                                                                                                                                |
+| 55  | [How are error boundaries handled in React v15?](#how-are-error-boundaries-handled-in-react-v15)                                                                                                                                 |
+| 56  | [What are the recommended ways for static type checking?](#what-are-the-recommended-ways-for-static-type-checking)                                                                                                               |
+| 57  | [What is the use of react-dom package?](#what-is-the-use-of-react-dom-package)                                                                                                                                                   |
+| 58  | [What is the purpose of render method of react-dom?](#what-is-the-purpose-of-render-method-of-react-dom)                                                                                                                         |
+| 59  | [What is ReactDOMServer?](#what-is-reactdomserver)                                                                                                                                                                               |
+| 60  | [How to use InnerHtml in React?](#how-to-use-innerhtml-in-react)                                                                                                                                                                 |
+| 61  | [How to use styles in React?](#how-to-use-styles-in-react)                                                                                                                                                                       |
+| 62  | [How events are different in React?](#how-events-are-different-in-react)                                                                                                                                                         |
+| 63  | [What will happen if you use setState in constructor?](#what-will-happen-if-you-use-setstate-in-constructor)                                                                                                                     |
+| 64  | [What is the impact of indexes as keys?](#what-is-the-impact-of-indexes-as-keys)                                                                                                                                                 |
+| 65  | [Is it good to use setState() in componentWillMount() method?](#is-it-good-to-use-setstate-in-componentwillmount-method)                                                                                                         |
+| 66  | [What will happen if you use props in initial state?](#what-will-happen-if-you-use-props-in-initial-state)                                                                                                                       |
+| 67  | [How do you conditionally render components?](#how-do-you-conditionally-render-components)                                                                                                                                       |
+| 68  | [Why we need to be careful when spreading props on DOM elements??](#why-we-need-to-be-careful-when-spreading-props-on-dom-elements)                                                                                              |
+| 69  | [How you use decorators in React?](#how-you-use-decorators-in-react)                                                                                                                                                             |
+| 70  | [How do you memoize a component?](#how-do-you-memoize-a-component)                                                                                                                                                               |
+| 71  | [How you implement Server-Side Rendering or SSR?](#how-you-implement-server-side-rendering-or-ssr)                                                                                                                               |
+| 72  | [How to enable production mode in React?](#how-to-enable-production-mode-in-react)                                                                                                                                               |
+| 73  | [What is CRA and its benefits?](#what-is-cra-and-its-benefits)                                                                                                                                                                   |
+| 74  | [What is the lifecycle methods order in mounting?](#what-is-the-lifecycle-methods-order-in-mounting)                                                                                                                             |
+| 75  | [What are the lifecycle methods going to be deprecated in React v16?](#what-are-the-lifecycle-methods-going-to-be-deprecated-in-react-v16)                                                                                       |
+| 76  | [What is the purpose of getDerivedStateFromProps() lifecycle method?](#what-is-the-purpose-of-getderivedstatefromprops-lifecycle-method)                                                                                         |
+| 77  | [What is the purpose of getSnapshotBeforeUpdate() lifecycle method?](#what-is-the-purpose-of-getsnapshotbeforeupdate-lifecycle-method)                                                                                           |
+| 78  | [Do Hooks replace render props and higher order components?](#do-hooks-replace-render-props-and-higher-order-components)                                                                                                         |
+| 79  | [What is the recommended way for naming components?](#what-is-the-recommended-way-for-naming-components)                                                                                                                         |
+| 80  | [What is the recommended ordering of methods in component class?](#what-is-the-recommended-ordering-of-methods-in-component-class)                                                                                               |
+| 81  | [What is a switching component?](#what-is-a-switching-component)                                                                                                                                                                 |
+| 82  | [Why we need to pass a function to setState()?](#why-we-need-to-pass-a-function-to-setstate)                                                                                                                                     |
+| 83  | [What is strict mode in React?](#what-is-strict-mode-in-react)                                                                                                                                                                   |
+| 84  | [What are React Mixins?](#what-are-react-mixins)                                                                                                                                                                                 |
+| 85  | [Why is isMounted() an anti-pattern and what is the proper solution?](#why-is-ismounted-an-anti-pattern-and-what-is-the-proper-solution)                                                                                         |
+| 86  | [What are the Pointer Events supported in React?](#what-are-the-pointer-events-supported-in-react)                                                                                                                               |
+| 87  | [Why should component names start with capital letter?](#why-should-component-names-start-with-capital-letter)                                                                                                                   |
+| 88  | [Are custom DOM attributes supported in React v16?](#are-custom-dom-attributes-supported-in-react-v16)                                                                                                                           |
+| 89  | [What is the difference between constructor and getInitialState?](#what-is-the-difference-between-constructor-and-getinitialstate)                                                                                               |
+| 90  | [Can you force a component to re-render without calling setState?](#can-you-force-a-component-to-re-render-without-calling-setstate)                                                                                             |
+| 91  | [What is the difference between super() and super(props) in React using ES6 classes?](#what-is-the-difference-between-super-and-superprops-in-react-using-es6-classes)                                                           |
+| 92  | [How to loop inside JSX?](#how-to-loop-inside-jsx)                                                                                                                                                                               |
+| 93  | [How do you access props in attribute quotes?](#how-do-you-access-props-in-attribute-quotes)                                                                                                                                     |
+| 94  | [What is React PropType array with shape?](#what-is-react-proptype-array-with-shape)                                                                                                                                             |
+| 95  | [How to conditionally apply class attributes?](#how-to-conditionally-apply-class-attributes)                                                                                                                                     |
+| 96  | [What is the difference between React and ReactDOM?](#what-is-the-difference-between-react-and-reactdom)                                                                                                                         |
+| 97  | [Why ReactDOM is separated from React?](#why-reactdom-is-separated-from-react)                                                                                                                                                   |
+| 98  | [How to use React label element?](#how-to-use-react-label-element)                                                                                                                                                               |
+| 99  | [How to combine multiple inline style objects?](#how-to-combine-multiple-inline-style-objects)                                                                                                                                   |
+| 100 | [How to re-render the view when the browser is resized?](#how-to-re-render-the-view-when-the-browser-is-resized)                                                                                                                 |
+| 101 | [What is the difference between setState and replaceState methods?](#what-is-the-difference-between-setstate-and-replacestate-methods)                                                                                           |
+| 102 | [How to listen to state changes?](#how-to-listen-to-state-changes)                                                                                                                                                               |
+| 103 | [What is the recommended approach of removing an array element in react state?](#what-is-the-recommended-approach-of-removing-an-array-element-in-react-state)                                                                   |
+| 104 | [Is it possible to use React without rendering HTML?](#is-it-possible-to-use-react-without-rendering-html)                                                                                                                       |
+| 105 | [How to pretty print JSON with React?](#how-to-pretty-print-json-with-react)                                                                                                                                                     |
+| 106 | [Why you can't update props in React?](#why-you-cant-update-props-in-react)                                                                                                                                                      |
+| 107 | [How to focus an input element on page load?](#how-to-focus-an-input-element-on-page-load)                                                                                                                                       |
+| 108 | [What are the possible ways of updating objects in state?](#what-are-the-possible-ways-of-updating-objects-in-state)                                                                                                             |
+| 110 | [How can we find the version of React at runtime in the browser?](#how-can-we-find-the-version-of-react-at-runtime-in-the-browser)                                                                                               |
+| 111 | [What are the approaches to include polyfills in your create-react-app?](#what-are-the-approaches-to-include-polyfills-in-your-create-react-app)                                                                                 |
+| 112 | [How to use https instead of http in create-react-app?](#how-to-use-https-instead-of-http-in-create-react-app)                                                                                                                   |
+| 113 | [How to avoid using relative path imports in create-react-app?](#how-to-avoid-using-relative-path-imports-in-create-react-app)                                                                                                   |
+| 114 | [How to add Google Analytics for react-router?](#how-to-add-google-analytics-for-react-router)                                                                                                                                   |
+| 115 | [How to update a component every second?](#how-to-update-a-component-every-second)                                                                                                                                               |
+| 116 | [How do you apply vendor prefixes to inline styles in React?](#how-do-you-apply-vendor-prefixes-to-inline-styles-in-react)                                                                                                       |
+| 117 | [How to import and export components using react and ES6?](#how-to-import-and-export-components-using-react-and-es6)                                                                                                             |
+| 118 | [What are the exceptions on React component naming?](#what-are-the-exceptions-on-react-component-naming)                                                                                                                         |
+| 119 | [Why is a component constructor called only once?](#why-is-a-component-constructor-called-only-once)                                                                                                                             |
+| 120 | [How to define constants in React?](#how-to-define-constants-in-react)                                                                                                                                                           |
+| 121 | [How to programmatically trigger click event in React?](#how-to-programmatically-trigger-click-event-in-react)                                                                                                                   |
+| 122 | [Is it possible to use async/await in plain React?](#is-it-possible-to-use-asyncawait-in-plain-react)                                                                                                                            |
+| 123 | [What are the common folder structures for React?](#what-are-the-common-folder-structures-for-react)                                                                                                                             |
+| 124 | [What are the popular packages for animation?](#what-are-the-popular-packages-for-animation)                                                                                                                                     |
+| 125 | [What is the benefit of styles modules?](#what-is-the-benefit-of-styles-modules)                                                                                                                                                 |
+| 126 | [What are the popular React-specific linters?](#what-are-the-popular-react-specific-linters)                                                                                                                                     |
+| 127 | [How to make AJAX call and In which component lifecycle methods should I make an AJAX call?](#how-to-make-ajax-call-and-in-which-component-lifecycle-methods-should-i-make-an-ajax-call)                                         |
+| 128 | [What are render props?](#what-are-render-props)                                                                                                                                                                                 |
+|     | **React Router**                                                                                                                                                                                                                 |
+| 129 | [What is React Router?](#what-is-react-router)                                                                                                                                                                                   |
+| 130 | [How React Router is different from history library?](#how-react-router-is-different-from-history-library)                                                                                                                       |
+| 131 | [What are the \<Router> components of React Router v4?](#what-are-the-router-components-of-react-router-v4)                                                                                                                      |
+| 132 | [What is the purpose of push and replace methods of history?](#what-is-the-purpose-of-push-and-replace-methods-of-history)                                                                                                       |
+| 133 | [How do you programmatically navigate using React router v4?](#how-do-you-programmatically-navigate-using-react-router-v4)                                                                                                       |
+| 134 | [How to get query parameters in React Router v4](#how-to-get-query-parameters-in-react-router-v4)                                                                                                                                |
+| 135 | [Why you get "Router may have only one child element" warning?](#why-you-get-router-may-have-only-one-child-element-warning)                                                                                                     |
+| 136 | [How to pass params to history.push method in React Router v4?](#how-to-pass-params-to-historypush-method-in-react-router-v4)                                                                                                    |
+| 137 | [How to implement default or NotFound page?](#how-to-implement-default-or-notfound-page)                                                                                                                                         |
+| 138 | [How to get history on React Router v4?](#how-to-get-history-on-react-router-v4)                                                                                                                                                 |
+| 139 | [How to perform automatic redirect after login?](#how-to-perform-automatic-redirect-after-login)                                                                                                                                 |
+|     | **React Internationalization**                                                                                                                                                                                                   |
+| 140 | [What is React-Intl?](#what-is-react-intl)                                                                                                                                                                                       |
+| 141 | [What are the main features of React Intl?](#what-are-the-main-features-of-react-intl)                                                                                                                                           |
+| 142 | [What are the two ways of formatting in React Intl?](#what-are-the-two-ways-of-formatting-in-react-intl)                                                                                                                         |
+| 143 | [How to use FormattedMessage as placeholder using React Intl?](#how-to-use-formattedmessage-as-placeholder-using-react-intl)                                                                                                     |
+| 144 | [How to access current locale with React Intl](#how-to-access-current-locale-with-react-intl)                                                                                                                                    |
+| 145 | [How to format date using React Intl?](#how-to-format-date-using-react-intl)                                                                                                                                                     |
+|     | **React Testing**                                                                                                                                                                                                                |
+| 146 | [What is Shallow Renderer in React testing?](#what-is-shallow-renderer-in-react-testing)                                                                                                                                         |
+| 147 | [What is TestRenderer package in React?](#what-is-testrenderer-package-in-react)                                                                                                                                                 |
+| 148 | [What is the purpose of ReactTestUtils package?](#what-is-the-purpose-of-reacttestutils-package)                                                                                                                                 |
+| 149 | [What is Jest?](#what-is-jest)                                                                                                                                                                                                   |
+| 150 | [What are the advantages of Jest over Jasmine?](#what-are-the-advantages-of-jest-over-jasmine)                                                                                                                                   |
+| 151 | [Give a simple example of Jest test case](#give-a-simple-example-of-jest-test-case)                                                                                                                                              |
+|     | **React Redux**                                                                                                                                                                                                                  |
+| 152 | [What is Flux?](#what-is-flux)                                                                                                                                                                                                   |
+| 153 | [What is Redux?](#what-is-redux)                                                                                                                                                                                                 |
+| 154 | [What are the core principles of Redux?](#what-are-the-core-principles-of-redux)                                                                                                                                                 |
+| 155 | [What are the downsides of Redux compared to Flux?](#what-are-the-downsides-of-redux-compared-to-flux)                                                                                                                           |
+| 156 | [What is the difference between mapStateToProps() and mapDispatchToProps()?](#what-is-the-difference-between-mapstatetoprops-and-mapdispatchtoprops)                                                                             |
+| 157 | [Can I dispatch an action in reducer?](#can-i-dispatch-an-action-in-reducer)                                                                                                                                                     |
+| 158 | [How to access Redux store outside a component?](#how-to-access-redux-store-outside-a-component)                                                                                                                                 |
+| 159 | [What are the drawbacks of MVW pattern](#what-are-the-drawbacks-of-mvw-pattern)                                                                                                                                                  |
+| 160 | [Are there any similarities between Redux and RxJS?](#are-there-any-similarities-between-redux-and-rxjs)                                                                                                                         |
+| 161 | [How to dispatch an action on load?](#how-to-dispatch-an-action-on-load)                                                                                                                                                         |
+| 162 | [How to use connect from React Redux?](#how-to-use-connect-from-react-redux)                                                                                                                                                     |
+| 163 | [How to reset state in Redux?](#how-to-reset-state-in-redux)                                                                                                                                                                     |
+| 164 | [Whats the purpose of at symbol in the redux connect decorator?](#whats-the-purpose-of-at-symbol-in-the-redux-connect-decorator)                                                                                                 |
+| 165 | [What is the difference between React context and React Redux?](#what-is-the-difference-between-react-context-and-react-redux)                                                                                                   |
+| 166 | [Why are Redux state functions called reducers?](#why-are-redux-state-functions-called-reducers)                                                                                                                                 |
+| 167 | [How to make AJAX request in Redux?](#how-to-make-ajax-request-in-redux)                                                                                                                                                         |
+| 168 | [Should I keep all component's state in Redux store?](#should-i-keep-all-components-state-in-redux-store)                                                                                                                        |
+| 169 | [What is the proper way to access Redux store?](#what-is-the-proper-way-to-access-redux-store)                                                                                                                                   |
+| 170 | [What is the difference between component and container in React Redux?](#what-is-the-difference-between-component-and-container-in-react-redux)                                                                                 |
+| 171 | [What is the purpose of the constants in Redux? ](#what-is-the-purpose-of-the-constants-in-redux)                                                                                                                                |
+| 172 | [What are the different ways to write mapDispatchToProps()?](#what-are-the-different-ways-to-write-mapdispatchtoprops)                                                                                                           |
+| 173 | [What is the use of the ownProps parameter in mapStateToProps() and mapDispatchToProps()?](#what-is-the-use-of-the-ownprops-parameter-in-mapstatetoprops-and-mapdispatchtoprops)                                                 |
+| 174 | [How to structure Redux top level directories?](#how-to-structure-redux-top-level-directories)                                                                                                                                   |
+| 175 | [What is redux-saga?](#what-is-redux-saga)                                                                                                                                                                                       |
+| 176 | [What is the mental model of redux-saga?](#what-is-the-mental-model-of-redux-saga)                                                                                                                                               |
+| 177 | [What are the differences between call and put in redux-saga](#what-are-the-differences-between-call-and-put-in-redux-saga)                                                                                                      |
+| 178 | [What is Redux Thunk?](#what-is-redux-thunk)                                                                                                                                                                                     |
+| 179 | [What are the differences between redux-saga and redux-thunk](#what-are-the-differences-between-redux-saga-and-redux-thunk)                                                                                                      |
+| 180 | [What is Redux DevTools?](#what-is-redux-devtools)                                                                                                                                                                               |
+| 181 | [What are the features of Redux DevTools?](#what-are-the-features-of-redux-devtools)                                                                                                                                             |
+| 182 | [What are Redux selectors and Why to use them?](#what-are-redux-selectors-and-why-to-use-them)                                                                                                                                   |
+| 183 | [What is Redux Form?](#what-is-redux-form)                                                                                                                                                                                       |
+| 184 | [What are the main features of Redux Form?](#what-are-the-main-features-of-redux-form)                                                                                                                                           |
+| 185 | [How to add multiple middlewares to Redux?](#how-to-add-multiple-middlewares-to-redux)                                                                                                                                           |
+| 186 | [How to set initial state in Redux?](#how-to-set-initial-state-in-redux)                                                                                                                                                         |
+| 187 | [How Relay is different from Redux?](#how-relay-is-different-from-redux)                                                                                                                                                         |
+| 188 | [What is an action in Redux?](#what-is-an-action-in-redux)                                                                                                                                                                       |
+|     | **React Native**                                                                                                                                                                                                                 |
+| 188 | [What is the difference between React Native and React?](#what-is-the-difference-between-react-native-and-react)                                                                                                                 |
+| 189 | [How to test React Native apps?](#how-to-test-react-native-apps)                                                                                                                                                                 |
+| 190 | [How to do logging in React Native?](#how-to-do-logging-in-react-native)                                                                                                                                                         |
+| 191 | [How to debug your React Native?](#how-to-debug-your-react-native)                                                                                                                                                               |
+|     | **React supported libraries and Integration**                                                                                                                                                                                    |
+| 192 | [What is reselect and how it works?](#what-is-reselect-and-how-it-works)                                                                                                                                                         |
+| 193 | [What is Flow?](#what-is-flow)                                                                                                                                                                                                   |
+| 194 | [What is the difference between Flow and PropTypes?](#what-is-the-difference-between-flow-and-proptypes)                                                                                                                         |
+| 195 | [How to use font-awesome icons in React?](#how-to-use-font-awesome-icons-in-react)                                                                                                                                               |
+| 196 | [What is React Dev Tools?](#what-is-react-dev-tools)                                                                                                                                                                             |
+| 197 | [Why is DevTools not loading in Chrome for local files?](#why-is-devtools-not-loading-in-chrome-for-local-files)                                                                                                                 |
+| 198 | [How to use Polymer in React?](#how-to-use-polymer-in-react)                                                                                                                                                                     |
+| 199 | [What are the advantages of React over Vue.js?](#what-are-the-advantages-of-react-over-vuejs)                                                                                                                                    |
+| 200 | [What is the difference between React and Angular?](#what-is-the-difference-between-react-and-angular)                                                                                                                           |
+| 201 | [Why React tab is not showing up in DevTools?](#why-react-tab-is-not-showing-up-in-devtools)                                                                                                                                     |
+| 202 | [What are styled components?](#what-are-styled-components)                                                                                                                                                                       |
+| 203 | [Give an example of Styled Components?](#give-an-example-of-styled-components)                                                                                                                                                   |
+| 204 | [What is Relay?](#what-is-relay)                                                                                                                                                                                                 |
+| 205 | [How to use TypeScript in create-react-app application?](#how-to-use-typescript-in-create-react-app-application)                                                                                                                 |
+|     | **Miscellaneous**                                                                                                                                                                                                                |
+| 206 | [What are the main features of reselect library?](#what-are-the-main-features-of-reselect-library)                                                                                                                               |
+| 207 | [Give an example of reselect usage?](#give-an-example-of-reselect-usage)                                                                                                                                                         |
+| 209 | [Does the statics object work with ES6 classes in React?](#does-the-statics-object-work-with-es6-classes-in-react)                                                                                                               |
+| 210 | [Can Redux only be used with React?](#can-redux-only-be-used-with-react)                                                                                                                                                         |
+| 211 | [Do you need to have a particular build tool to use Redux?](#do-you-need-to-have-a-particular-build-tool-to-use-redux)                                                                                                           |
+| 212 | [How Redux Form initialValues get updated from state?](#how-redux-form-initialvalues-get-updated-from-state)                                                                                                                     |
+| 213 | [How React PropTypes allow different type for one prop?](#how-react-proptypes-allow-different-types-for-one-prop)                                                                                                                |
+| 214 | [Can I import an SVG file as react component?](#can-i-import-an-svg-file-as-react-component)                                                                                                                                     |
+| 215 | [Why are inline ref callbacks or functions not recommended?](#why-are-inline-ref-callbacks-or-functions-not-recommended)                                                                                                         |
+| 216 | [What is render hijacking in React?](#what-is-render-hijacking-in-react)                                                                                                                                                         |
+| 217 | [What are HOC factory implementations?](#what-are-hoc-factory-implementations)                                                                                                                                                   |
+| 218 | [How to pass numbers to React component?](#how-to-pass-numbers-to-react-component)                                                                                                                                               |
+| 219 | [Do I need to keep all my state into Redux? Should I ever use react internal state?](#do-i-need-to-keep-all-my-state-into-redux-should-i-ever-use-react-internal-state)                                                          |
+| 220 | [What is the purpose of registerServiceWorker in React?](#what-is-the-purpose-of-registerserviceworker-in-react)                                                                                                                 |
+| 221 | [What is React memo function?](#what-is-react-memo-function)                                                                                                                                                                     |
+| 222 | [What is React lazy function?](#what-is-react-lazy-function)                                                                                                                                                                     |
+| 223 | [How to prevent unnecessary updates using setState?](#how-to-prevent-unnecessary-updates-using-setstate)                                                                                                                         |
+| 224 | [How do you render Array, Strings and Numbers in React 16 Version?](#how-do-you-render-array-strings-and-numbers-in-react-16-version)                                                                                            |
+| 225 | [How to use class field declarations syntax in React classes?](#how-to-use-class-field-declarations-syntax-in-react-classes)                                                                                                     |
+| 226 | [What are hooks?](#what-are-hooks)                                                                                                                                                                                               |
+| 227 | [What rules need to be followed for hooks?](#what-rules-need-to-be-followed-for-hooks)                                                                                                                                           |
+| 228 | [How to ensure hooks followed the rules in your project?](#how-to-ensure-hooks-followed-the-rules-in-your-project)                                                                                                               |
+| 229 | [What are the differences between Flux and Redux?](#what-are-the-differences-between-flux-and-redux)                                                                                                                             |
+| 230 | [What are the benefits of React Router V4?](#what-are-the-benefits-of-react-router-v4)                                                                                                                                           |
+| 231 | [Can you describe about componentDidCatch lifecycle method signature?](#can-you-describe-about-componentdidcatch-lifecycle-method-signature)                                                                                     |
+| 232 | [In which scenarios error boundaries do not catch errors?](#in-which-scenarios-error-boundaries-do-not-catch-errors)                                                                                                             |
+| 233 | [Why do you not need error boundaries for event handlers?](#why-do-you-not-need-error-boundaries-for-event-handlers)                                                                                                             |
+| 234 | [What is the difference between try catch block and error boundaries?](#what-is-the-difference-between-try-catch-block-and-error-boundaries)                                                                                     |
+| 235 | [What is the behavior of uncaught errors in react 16?](#what-is-the-behavior-of-uncaught-errors-in-react-16)                                                                                                                     |
+| 236 | [What is the proper placement for error boundaries?](#what-is-the-proper-placement-for-error-boundaries)                                                                                                                         |
+| 237 | [What is the benefit of component stack trace from error boundary?](#what-is-the-benefit-of-component-stack-trace-from-error-boundary)                                                                                           |
+| 238 | [What is the required method to be defined for a class component?](#what-is-the-required-method-to-be-defined-for-a-class-component)                                                                                             |
+| 239 | [What are the possible return types of render method?](#what-are-the-possible-return-types-of-render-method)                                                                                                                     |
+| 240 | [What is the main purpose of constructor?](#what-is-the-main-purpose-of-constructor)                                                                                                                                             |
+| 241 | [Is it mandatory to define constructor for React component?](#is-it-mandatory-to-define-constructor-for-react-component)                                                                                                         |
+| 242 | [What are default props?](#what-are-default-props)                                                                                                                                                                               |
+| 243 | [Why should not call setState in componentWillUnmount?](#why-should-not-call-setstate-in-componentwillunmount)                                                                                                                   |
+| 244 | [What is the purpose of getDerivedStateFromError?](#what-is-the-purpose-of-getderivedstatefromerror)                                                                                                                             |
+| 245 | [What is the methods order when component re-rendered?](#what-is-the-methods-order-when-component-re-rendered)                                                                                                                   |
+| 246 | [What are the methods invoked during error handling?](#what-are-the-methods-invoked-during-error-handling)                                                                                                                       |
+| 247 | [What is the purpose of displayName class property?](#what-is-the-purpose-of-displayname-class-property)                                                                                                                         |
+| 248 | [What is the browser support for react applications?](#what-is-the-browser-support-for-react-applications)                                                                                                                       |
+| 249 | [What is the purpose of unmountComponentAtNode method?](#what-is-the-purpose-of-unmountcomponentatnode-method)                                                                                                                   |
+| 250 | [What is code-splitting?](#what-is-code-splitting)                                                                                                                                                                               |
+| 251 | [What is the benefit of strict mode?](#what-is-the-benefit-of-strict-mode)                                                                                                                                                       |
+| 252 | [What are Keyed Fragments?](#what-are-keyed-fragments)                                                                                                                                                                           |
+| 253 | [Does React support all HTML attributes?](#does-react-support-all-html-attributes)                                                                                                                                               |
+| 254 | [What are the limitations with HOCs?](#what-are-the-limitations-with-hocs)                                                                                                                                                       |
+| 255 | [How to debug forwardRefs in DevTools?](#how-to-debug-forwardrefs-in-devtools)                                                                                                                                                   |
+| 256 | [When component props defaults to true?](#when-component-props-defaults-to-true)                                                                                                                                                 |
+| 257 | [What is NextJS and major features of it?](#what-is-nextjs-and-major-features-of-it)                                                                                                                                             |
+| 258 | [How do you pass an event handler to a component?](#how-do-you-pass-an-event-handler-to-a-component)                                                                                                                             |
+| 259 | [Is it good to use arrow functions in render methods?](#is-it-good-to-use-arrow-functions-in-render-methods)                                                                                                                     |
+| 260 | [How to prevent a function from being called multiple times?](#how-to-prevent-a-function-from-being-called-multiple-times)                                                                                                       |
+| 261 | [How JSX prevents Injection Attacks?](#how-jsx-prevents-injection-attacks)                                                                                                                                                       |
+| 262 | [How do you update rendered elements?](#how-do-you-update-rendered-elements)                                                                                                                                                     |
+| 263 | [How do you say that props are read only?](#how-do-you-say-that-props-are-read-only)                                                                                                                                             |
+| 264 | [How do you say that state updates are merged?](#how-do-you-say-that-state-updates-are-merged)                                                                                                                                   |
+| 265 | [How do you pass arguments to an event handler?](#how-do-you-pass-arguments-to-an-event-handler)                                                                                                                                 |
+| 266 | [How to prevent component from rendering?](#how-to-prevent-component-from-rendering)                                                                                                                                             |
+| 267 | [What are the conditions to safely use the index as a key?](#what-are-the-conditions-to-safely-use-the-index-as-a-key)                                                                                                           |
+| 268 | [Is it keys should be globally unique?](#is-it-keys-should-be-globally-unique)                                                                                                                                                   |
+| 269 | [What is the popular choice for form handling?](#what-is-the-popular-choice-for-form-handling)                                                                                                                                   |
+| 270 | [What are the advantages of formik over redux form library?](#what-are-the-advantages-of-formik-over-redux-form-library)                                                                                                         |
+| 271 | [Why do you not required to use inheritance?](#why-do-you-not-required-to-use-inheritance)                                                                                                                                       |
+| 272 | [Can I use web components in react application?](#can-i-use-web-components-in-react-application)                                                                                                                                 |
+| 273 | [What is dynamic import?](#what-is-dynamic-import)                                                                                                                                                                               |
+| 274 | [What are loadable components?](#what-are-loadable-components)                                                                                                                                                                   |
+| 275 | [What is suspense component?](#what-is-suspense-component)                                                                                                                                                                       |
+| 276 | [What is route based code splitting?](#what-is-route-based-code-splitting)                                                                                                                                                       |
+| 277 | [Give an example on How to use context?](#give-an-example-on-how-to-use-context)                                                                                                                                                 |
+| 278 | [What is the purpose of default value in context?](#what-is-the-purpose-of-default-value-in-context)                                                                                                                             |
+| 279 | [How do you use contextType?](#how-do-you-use-contexttype)                                                                                                                                                                       |
+| 280 | [What is a consumer?](#what-is-a-consumer)                                                                                                                                                                                       |
+| 281 | [How do you solve performance corner cases while using context?](#how-do-you-solve-performance-corner-cases-while-using-context)                                                                                                 |
+| 282 | [What is the purpose of forward ref in HOCs?](#what-is-the-purpose-of-forward-ref-in-hocs)                                                                                                                                       |
+| 283 | [Is it ref argument available for all functions or class components?](#is-it-ref-argument-available-for-all-functions-or-class-components)                                                                                       |
+| 284 | [Why do you need additional care for component libraries while using forward refs?](#why-do-you-need-additional-care-for-component-libraries-while-using-forward-refs)                                                           |
+| 285 | [How to create react class components without ES6?](#how-to-create-react-class-components-without-es6)                                                                                                                           |
+| 286 | [Is it possible to use react without JSX?](#is-it-possible-to-use-react-without-jsx)                                                                                                                                             |
+| 287 | [What is diffing algorithm?](#what-is-diffing-algorithm)                                                                                                                                                                         |
+| 288 | [What are the rules covered by diffing algorithm?](#what-are-the-rules-covered-by-diffing-algorithm)                                                                                                                             |
+| 289 | [When do you need to use refs?](#when-do-you-need-to-use-refs)                                                                                                                                                                   |
+| 290 | [Is it prop must be named as render for render props?](#is-it-prop-must-be-named-as-render-for-render-props)                                                                                                                     |
+| 291 | [What are the problems of using render props with pure components?](#what-are-the-problems-of-using-render-props-with-pure-components)                                                                                           |
+| 292 | [How do you create HOC using render props?](#how-do-you-create-hoc-using-render-props)                                                                                                                                           |
+| 293 | [What is windowing technique?](#what-is-windowing-technique)                                                                                                                                                                     |
+| 294 | [How do you print falsy values in JSX?](#how-do-you-print-falsy-values-in-jsx)                                                                                                                                                   |
+| 295 | [What is the typical use case of portals?](#what-is-the-typical-use-case-of-portals)                                                                                                                                             |
+| 296 | [How do you set default value for uncontrolled component?](#how-do-you-set-default-value-for-uncontrolled-component)                                                                                                             |
+| 297 | [What is your favorite React stack?](#what-is-your-favorite-react-stack)                                                                                                                                                         |
+| 298 | [What is the difference between Real DOM and Virtual DOM?](#what-is-the-difference-between-real-dom-and-virtual-dom)                                                                                                             |
+| 299 | [How to add Bootstrap to a react application?](#how-to-add-bootstrap-to-a-react-application)                                                                                                                                     |
+| 300 | [Can you list down top websites or applications using react as front end framework?](#can-you-list-down-top-websites-or-applications-using-react-as-front-end-framework)                                                         |
+| 301 | [Is it recommended to use CSS In JS technique in React?](#is-it-recommended-to-use-css-in-js-technique-in-react)                                                                                                                 |
+| 302 | [Do I need to rewrite all my class components with hooks?](#do-i-need-to-rewrite-all-my-class-components-with-hooks)                                                                                                             |
+| 303 | [How to fetch data with React Hooks?](#how-to-fetch-data-with-react-hooks)                                                                                                                                                       |
+| 304 | [Is Hooks cover all use cases for classes?](#is-hooks-cover-all-use-cases-for-classes)                                                                                                                                           |
+| 305 | [What is the stable release for hooks support?](#what-is-the-stable-release-for-hooks-support)                                                                                                                                   |
+| 306 | [Why do we use array destructuring (square brackets notation) in useState?](#why-do-we-use-array-destructuring-square-brackets-notation-in-usestate)                                                                             |
+| 307 | [What are the sources used for introducing hooks?](#what-are-the-sources-used-for-introducing-hooks)                                                                                                                             |
+| 308 | [How do you access imperative API of web components?](#how-do-you-access-imperative-api-of-web-components)                                                                                                                       |
+| 309 | [What is formik?](#what-is-formik)                                                                                                                                                                                               |
+| 310 | [What are typical middleware choices for handling asynchronous calls in Redux?](#what-are-typical-middleware-choices-for-handling-asynchronous-calls-in-redux)                                                                   |
+| 311 | [Do browsers understand JSX code?](#do-browsers-understand-jsx-code)                                                                                                                                                             |
+| 312 | [Describe about data flow in react?](#describe-about-data-flow-in-react)                                                                                                                                                         |
+| 313 | [What is react scripts?](#what-is-react-scripts)                                                                                                                                                                                 |
+| 314 | [What are the features of create react app?](#what-are-the-features-of-create-react-app)                                                                                                                                         |
+| 315 | [What is the purpose of renderToNodeStream method?](#what-is-the-purpose-of-rendertonodestream-method)                                                                                                                           |
+| 316 | [What is MobX?](#what-is-mobx)                                                                                                                                                                                                   |
+| 317 | [What are the differences between Redux and MobX?](#what-are-the-differences-between-redux-and-mobx)                                                                                                                             |
+| 318 | [Should I learn ES6 before learning ReactJS?](#should-i-learn-es6-before-learning-reactjs)                                                                                                                                       |
+| 319 | [What is Concurrent Rendering?](#what-is-concurrent-rendering)                                                                                                                                                                   |
+| 320 | [What is the difference between async mode and concurrent mode?](#what-is-the-difference-between-async-mode-and-concurrent-mode)                                                                                                 |
+| 321 | [Can I use javascript urls in react16.9?](#can-i-use-javascript-urls-in-react169)                                                                                                                                                |
+| 322 | [What is the purpose of eslint plugin for hooks?](#what-is-the-purpose-of-eslint-plugin-for-hooks)                                                                                                                               |
+| 323 | [What is the difference between Imperative and Declarative in React?](#what-is-the-difference-between-imperative-and-declarative-in-react)                                                                                       |
+| 324 | [What are the benefits of using typescript with reactjs?](#what-are-the-benefits-of-using-typescript-with-reactjs)                                                                                                               |
+| 325 | [How do you make sure that user remains authenticated on page refresh while using Context API State Management?](#how-do-you-make-sure-that-user-remains-authenticated-on-page-refresh-while-using-context-api-state-management) |
+| 326 | [What are the benefits of new JSX transform?](#what-are-the-benefits-of-new-jsx-transform)                                                                                                                                       |
+| 327 | [How is the new JSX transform different from old transform?](#how-is-the-new-jsx-transform-different-from-old-transform)                                                                                                         |
+| 328 | [How do you get redux scaffolding using create-react-app?](#how-do-you-get-redux-scaffolding-using-create-react-app)                                                                                                             |
+| 329 | [What are React Server components?](#what-are-react-server-components)                                                                                                                                                           |
+| 330 | [What is prop drilling?](#what-is-prop-drilling)                                                                                                                                                                                 |
+| 331 | [What is state mutation and how to prevent it?](#what-is-state-mutation-and-how-to-prevent-it)                                                                                                                                   |
+| 332 | [What is the difference between useState and useRef hook?](#what-is-the-difference-between-usestate-and-useref-hook)                                                                                                             |
+| 333 | [What is a wrapper component ](#what-is-a-wrapper-component)                                                                                                                                                                     |
+| 334 | [What are the differences between useEffect and useLayoutEffect hooks](#what-are-the-differences-between-useEffect-and-useLayoutEffect-hooks)                                                                                    |
+| 335 | [What are the differences between Functional and Class Components ](#what-are-the-differences-between-functional-and-class-components)                                                                                           |
+
 
 1. ### What are the possible ways to create objects in JavaScript
 
